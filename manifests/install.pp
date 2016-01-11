@@ -63,9 +63,11 @@ class python::install {
         require => Package['python'],
       }
 
-      package { 'python-dev':
-        ensure => $dev_ensure,
-        name   => $pythondev,
+      if ! defined(Package['python-dev']) {
+        package { 'python-dev':
+          ensure => $dev_ensure,
+          name   => $pythondev,
+        }
       }
 
       # Install pip without pip, see https://pip.pypa.io/en/stable/installing/.
