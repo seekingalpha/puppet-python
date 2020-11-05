@@ -44,7 +44,7 @@ class python::pip::bootstrap (
       file { 'pip3-python':
         ensure  => link,
         path    => '/usr/bin/pip3',
-        target  => "${target_src_pip_path}/pip${facts['python3_release']}",
+        target  => "${target_src_pip_path}/pip3",
         require => Exec['bootstrap pip3'],
       }
     } else {
@@ -60,7 +60,7 @@ class python::pip::bootstrap (
       file { 'pip-python':
         ensure  => link,
         path    => '/usr/bin/pip',
-        target  => "${target_src_pip_path}/pip${facts['python2_release']}",
+        target  => "${target_src_pip_path}/pip2",
         require => Exec['bootstrap pip'],
       }
     }
